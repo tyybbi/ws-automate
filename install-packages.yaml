@@ -19,6 +19,7 @@
         - git
         - inxi
         - jq
+        - network-manager
         - ranger
         - redshift
         - rxvt-unicode

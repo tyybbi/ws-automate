@@ -42,6 +42,16 @@
       repo: 'https://github.com/guotsuan/eminent.git'
       dest: "/home/{{ usernam }}/.config/awesome/eminent"
 
+  - name: Change permissions
+    file:
+      recurse: yes
+      owner: "{{ usernam }}"
+      group: "{{ usernam }}"
+      path: "{{ item }}"
+    with_items:
+        - "/home/{{ usernam }}/.config/awesome/calendar/.git"
+        - "/home/{{ usernam }}/.config/awesome/eminent/.git"
+
   - name: Copy .bashrc
     template:
       src: files/bashrc.j2
@@ -104,5 +114,6 @@
       - "/home/{{ usernam }}/.zaliases"
       - "/home/{{ usernam }}/.zsh"
       - "/home/{{ usernam }}/.screenrc"
+      - "/home/{{ usernam }}/.Xdefaults"
       - "/home/{{ usernam }}/.Xdefaults"
 

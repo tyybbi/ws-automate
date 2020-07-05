@@ -26,6 +26,7 @@
       remote_src: yes
       src: "/home/{{ usernam }}/misc/git/dotfiles/vimrc"
       dest: "/home/{{ usernam }}/.vimrc"
+      owner: "{{ usernam }}"
 
   - name: Make vim plugin directories
     file:

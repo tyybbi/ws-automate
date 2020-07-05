@@ -1,0 +1,27 @@
+# ENV variables
+#export TERM='rxvt-unicode'
+#export TERM='xterm-256color'
+export PATH="$PATH:/sbin:/usr/sbin:/home/$USER/bin:"
+
+# ibus stuff
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
+export HISTFILE=~/.histfile
+export HISTSIZE=5000
+export SAVEHIST=5000
+export WORDCHARS='*?_[]~&;!#$%^(){}<>'
+
+export HOSTNAME="`hostname`"
+
+export PAGER='less'
+export EDITOR='vim'
+export BROWSER='chromium'
+export VISUAL=$EDITOR
+export INFOPATH='/usr/share/info'
+export LESS='miqsz-2XRF'
+export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
+
+export XDG_CONFIG_HOME="/home/$USER/.config/"
+

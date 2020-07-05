@@ -1,0 +1,260 @@
+# Lines configured by zsh-newuser-install
+
+# Customize to your needs...
+setopt INC_APPEND_HISTORY SHARE_HISTORY
+setopt APPEND_HISTORY
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt nohup
+
+setopt prompt_subst
+autoload -Uz vcs_info
+autoload -U edit-command-line
+
+setopt list_ambiguous
+setopt complete_in_word
+#setopt AUTOLIST		# these two should be turned off
+# setopt AUTO_REMOVE_SLASH
+# setopt AUTO_RESUME		# tries to resume command of same name
+unsetopt BG_NICE		# do NOT nice bg commands
+setopt CORRECT			# command CORRECTION
+unsetopt EXTENDED_HISTORY		# puts timestamps in the history
+
+# Set/unset  shell options
+setopt   notify globdots correct pushdtohome cdablevars #autolist
+setopt   autocd longlistjobs #correctall recexact
+setopt   autoresume histignoredups pushdsilent
+setopt   autopushd pushdminus extendedglob rcquotes nomailwarning
+setopt   automenu
+unsetopt bgnice autoparamslash
+
+# Autoload zsh modules when they are referenced
+#zmodload -a zsh/stat stat
+zmodload -a zsh/zpty zpty
+zmodload -a zsh/zprof zprof
+zmodload -ap zsh/mapfile mapfile
+
+# under fbterm
+if grep '^fbterm' /proc/$PPID/cmdline > /dev/null; then
+  export TERM=fbterm
+  # Possible actions?
+  #unset DISPLAY BROWSER
+  #export LANG=zh_CN.UTF-8
+  #TERM=screen
+fi
+
+if [ "$TMUX" ]; then
+    TERM=screen
+fi
+
+autoload colors zsh/terminfo
+if [[ "$terminfo[colors]" -ge 8 ]]; then
+    colors
+fi
+for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
+    eval PR_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
+    eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
+    (( count = $count + 1 ))
+done
+
+case $TERM in (xterm*)
+    bindkey '\e[H' beginning-of-line
+    bindkey '\e[F' end-of-line ;;
+esac
+
+case $TERM in
+    xterm*|*rxvt*)
+        precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+        preexec () { print -Pn "\e]0;%n@%m: $1\a" }
+        ;;
+esac
+#
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# Source aliases
+if [ -f ~/.zaliases ]; then
+    source ~/.zaliases
+fi
+
+ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;'
+
+# Set theme path
+fpath=(${HOME}/.zsh/oh-my-zsh/themes ${fpath})
+autoload promptinit
+promptinit
+
+source "$HOME/.zsh/pisces.zsh"
+
+# Functions
+#source "$HOME/.zsh/zfunctions/astrolog.zsh"
+
+# Uncomment below to get colored man pages
+#man() {
+#	env \
+#		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+#		LESS_TERMCAP_md=$(printf "\e[1;31m") \
+#		LESS_TERMCAP_me=$(printf "\e[0m") \
+#		LESS_TERMCAP_se=$(printf "\e[0m") \
+#		LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+#		LESS_TERMCAP_ue=$(printf "\e[0m") \
+#		LESS_TERMCAP_us=$(printf "\e[1;32m") \
+#			man "$@"
+#}
+
+typeset -U fpath
+
+#source ~/.perlbrew/etc/bashrc
+
+autoload -Uz compinit
+compinit
+
+# Emacs
+bindkey -e
+
+# Vi
+#bindkey -v
+# Map "jk" to Esc
+#bindkey -M viins 'jk' vi-cmd-mode
+
+# Clear cmdline temporarily, execute another cmd, and return the original cmd.
+# The function is 'push-line' and by default it's bound to alt-q (q)
+
+## Alt+Ctrl-h
+#backward-kill-dir () {
+#    local WORDCHARS=${WORDCHARS/\/}
+#    zle backward-kill-word
+#}
+#zle -N backward-kill-dir
+#bindkey '^[' backward-kill-dir
+#
+#
+## Alt+Left
+#backward-word-dir () {
+#    local WORDCHARS=${WORDCHARS/\/}
+#    zle backward-word
+#}
+#zle -N backward-word-dir
+#bindkey "^[[1;3C" forward-word-dir
+#
+## Alt+Right
+#forward-word-dir () {
+#    local WORDCHARS=${WORDCHARS/\/}
+#    zle forward-word
+#}
+#zle -N forward-word-dir
+#bindkey "^[[1;3D" backward-word-dir
+
+# Edit command inside $EDITOR
+zle -N edit-command-line
+bindkey '^xe'   edit-command-line                       # Ctrl-x e
+bindkey '^x^e'  edit-command-line                       # Ctrl-x Ctrl-e
+bindkey ""    backward-delete-char                    # Ctrl-h
+bindkey ""    backward-delete-word                    # Ctrl-w
+bindkey '^[OH'  beginning-of-line                       # Home
+bindkey '^[OF'  end-of-line                             # End
+bindkey "^r"    history-incremental-search-backward     # Ctrl-r
+bindkey ' '     magic-space                             # also do history expansion on space
+bindkey '^I'    complete-word                           # complete on Tab, leave expansion to _expand
+bindkey '-'   copy-prev-word                          # Alt-- (Esc -)
+bindkey 'Oc'  forward-word                            # Alt-f (Esc f)
+bindkey 'Od'  backward-word                           # Alt-b (Esc b)
+bindkey '^[[6~' end-of-history                          # PgDn
+bindkey '^[[5~' beginning-of-history                    # PgUp
+bindkey 'd'   describe-key-briefly                    # Ctrl-x d
+#bindkey "^[[1;5C" forward-word                          # Ctrl-Right
+#bindkey "^[[1;5D" backward-word                         # Ctrl-Left
+
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+#zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s'
+zstyle ':completion:*' menu select=1  _ignored _approximate _complete _files
+zstyle ':completion:*' use-cache 1
+zstyle ':completion:*' cache-path ~/.zcompcache
+
+zstyle -e ':completion:*:approximate:*' max-errors \
+    'reply=( $(( ($#PREFIX+$#SUFFIX)/2 )) numeric )'
+zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
+
+# Completion Styles
+
+# list of completers to use
+zstyle ':completion:*::::' completer _expand _complete _ignored _approximate
+
+# allow one error for every three characters typed in approximate completer
+zstyle -e ':completion:*:approximate:*' max-errors \
+    'reply=( $(( ($#PREFIX+$#SUFFIX)/2 )) numeric )'
+
+# insert all expansions for expand completer
+zstyle ':completion:*:expand:*' tag-order all-expansions
+
+# formatting and messages
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:matches' group 'yes'
+zstyle ':completion:*:options' description 'yes'
+#zstyle ':completion:*:descriptions' format '%B%d%b'
+zstyle ':completion:*:options' auto-description '%d'
+zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f'
+#zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
+#zstyle ':completion:*:warnings' format 'No matches for: %d'
+zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+#zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f'
+zstyle ':completion:*' group-name ''
+
+# match uppercase from lowercase
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# offer indexes before parameters in subscripts
+zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
+
+# command for process lists, the local web server details and host completion
+# on processes completion complete all user processes
+# zstyle ':completion:*:processes' command 'ps -au$USER'
+
+## add colors to processes for kill completion
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+
+#zstyle ':completion:*:processes' command 'ps ax -o pid,s,nice,stime,args | sed "/ps/d"'
+zstyle ':completion:*:*:kill:*:processes' command 'ps --forest -A -o pid,user,cmd'
+zstyle ':completion:*:processes-names' command 'ps axho command'
+#zstyle ':completion:*:urls' local 'www' '/var/www/htdocs' 'public_html'
+#
+#NEW completion:
+# 1. All /etc/hosts hostnames are in autocomplete
+# 2. If you have a comment in /etc/hosts like #%foobar.domain,
+#    then foobar.domain will show up in autocomplete!
+zstyle ':completion:*' hosts $(awk '/^[^#]/ {print $2 $3" "$4" "$5}' /etc/hosts | grep -v ip6- && grep "^#%" /etc/hosts | awk -F% '{print $2}')
+# Filename suffixes to ignore during completion (except after rm command)
+#zstyle ':completion:*:*:(^rm):*:*files' ignored-patterns '*?.o' '*?.c~' \
+#    '*?.old' '*?.pro'
+# the same for old style completion
+#fignore=(.o .c~ .old .pro)
+
+# ignore completion functions (until the _ignored completer)
+zstyle ':completion:*:functions' ignored-patterns '_*'
+zstyle ':completion:*:*:*:users' ignored-patterns \
+        adm apache bin daemon games gdm halt ident junkbust lp mail mailnull \
+        named news nfsnobody nobody nscd ntp operator pcap postgres radvd \
+        rpc rpcuser rpm shutdown squid sshd sync uucp vcsa xfs avahi-autoipd\
+        avahi backup messagebus beagleindex debian-tor dhcp dnsmasq fetchmail\
+        firebird gnats haldaemon hplip irc klog list man cupsys postfix\
+        proxy syslog www-data mldonkey sys snort
+# SSH Completion
+zstyle ':completion:*:scp:*' tag-order \
+   files users 'hosts:-host hosts:-domain:domain hosts:-ipaddr"IP\ Address *'
+zstyle ':completion:*:scp:*' group-order \
+   files all-files users hosts-domain hosts-host hosts-ipaddr
+zstyle ':completion:*:ssh:*' tag-order \
+   users 'hosts:-host hosts:-domain:domain hosts:-ipaddr"IP\ Address *'
+zstyle ':completion:*:ssh:*' group-order \
+   hosts-domain hosts-host users hosts-ipaddr
+zstyle '*' single-ignored show
+
+# Mutt
+if [[ -s "$HOME/.mutt/aliases" ]]; then
+  zstyle ':completion:*:*:mutt:*' menu yes select
+  zstyle ':completion:*:mutt:*' users ${${${(f)"$(<"$HOME/.mutt/aliases")"}#alias[[:space:]]}%%[[:space:]]*}
+fi
+

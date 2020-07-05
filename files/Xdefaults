@@ -1,0 +1,121 @@
+!XTerm*underLine:		on
+XTerm*colorMode:		on
+XTerm*colorBD:			lightyellow
+!XTerm*colorBDMode:		off
+!XTerm*colorUL:			yellow
+!XTerm*colorULMode:		on
+XTerm*dynamicColors:		off
+XTerm*highlightSelection:	true
+XTerm*background:		#000000
+!XTerm*foreground:		#7f7f7f
+XTerm*foreground:		#a8a8a8
+XTerm*visualBell:       true
+!XTerm*font:             -xos4-terminus-medium-r-normal-*-9--*-*-*-*-*-*
+!XTerm*font:             -*-liberation.mono-medium-r-*-*-*-*-*-*-*-*-*-*
+XTerm*font:             -*-lucidatypewriter-medium-r-*-*-12-*-*-*-*-*-*-*
+XTerm*saveLines:        10000
+
+!colors
+!black
+!XTerm*color0:		#000000
+!XTerm*color8:		#666666
+!red
+!XTerm*color1:		#9e1828
+!XTerm*color9:		#cf6171
+!green
+!XTerm*color2:		#aece92
+!XTerm*color10:		#c5f779
+!yellow
+!XTerm*color3:		#968a38
+!XTerm*color11:		#fff796
+!blue
+!XTerm*color4:		#414171
+!XTerm*color12:		#4186be
+!magenta
+!XTerm*color5:		#96c359
+!XTerm*color13:		#cf9ebe
+!cyan
+!XTerm*color6:		#418179
+!XTerm*color14:		#71bebe
+!white
+!XTerm*color7:		#bebebe
+!XTerm*color15:		#ffffff
+
+!URxvt*termName: rxvt-unicode
+URxvt*termName: rxvt-unicode-256color
+
+## borderless and no scrollbar
+URxvt*scrollBar_right: false
+URxvt*scrollBar: false
+URxvt*borderLess: false
+
+## transparency stuff
+URxvt*transparency: true
+URxvt*inheritPixmap: true
+URxvt*tintColor: white
+URxvt*shading: 10
+
+## geometry and font
+!URxvt.letterSpace: -1
+URxvt*geometry: 80×24
+URxvt.font:     xft:dejavu sans mono:size=10:antialias=false
+URxvt.boldFont: xft:dejavu sans mono:bold:size=10:antialias=false
+!URxvt*font: xft:terminus:size=12:antialias=true
+!URxvt*boldFont: xft:terminus:bold:size=12:antialias=true
+URxvt*inputMethod: ibus
+URxvt.preeditType: OverTheSpot
+
+URxvt.perl-ext-common: default,matcher,confirm-paste
+URxvt.url-launcher: launch-chromium
+URxvt.matcher.button: 1
+URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+URxvt.matcher.rend.0: Uline Bold fg6
+
+URxvt*saveLines:        10000
+
+## Disable ISO 14755 and picture keycap mode, add S-C-C/V copy/paste
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+## Slrnface config (placement on screen)
+!URxvt.slrnface.xOffsetChar: 2
+!URxvt.slrnface.yOffsetChar: 15
+
+! "Universal" color scheme
+*background: #000000
+*foreground: #dedede
+! black
+*color0  : #2E3436
+*color8  : #555753
+! red
+*color1  : #CC0000
+*color9  : #EF2929
+! green
+*color2  : #4E9A06
+*color10 : #8AE234
+! yellow
+*color3  : #C4A000
+*color11 : #FCE94F
+! blue
+*color4  : #3465A4
+*color12 : #729FCF
+! magenta
+*color5  : #75507B
+*color13 : #AD7FA8
+! cyan
+*color6  : #06989A
+*color14 : #34E2E2
+! white
+*color7  : #D3D7CF
+*color15 : #EEEEEC
+
+Xft.dpi: 96
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+

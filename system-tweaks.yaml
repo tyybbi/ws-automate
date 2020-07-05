@@ -1,0 +1,5 @@
+  - name: Set keyboard
+    copy:
+      src: files/keyboard
+      dest: /etc/default/keyboard
+

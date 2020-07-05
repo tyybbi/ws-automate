@@ -1,0 +1,38 @@
+  - name: Update packages
+    apt:
+      upgrade: dist
+      update_cache: yes
+
+  - name: Install packages
+    apt:
+      pkg:
+        - alsa-utils
+        - awesome
+        - awesome-extra
+        - apt-show-versions
+        - aptitude
+        - bash-completion
+        - bc
+        - dbus-x11
+        - exuberant-ctags
+        - feh
+        - git
+        - inxi
+        - jq
+        - ranger
+        - redshift
+        - rxvt-unicode
+        - tree
+        - screen
+        - suckless-tools
+        - xinit
+        - vim-nox
+        - zsh
+        - zsh-doc
+
+  - name: Install acpitool
+    apt:
+      pkg:
+        - acpitool
+    when: is_laptop|bool
+

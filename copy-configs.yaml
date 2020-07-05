@@ -1,0 +1,108 @@
+  - name: Create some dirs
+    file:
+      path: "{{ item }}"
+      state: directory
+      owner: "{{ usernam }}"
+      group: "{{ usernam }}"
+      mode: '0755'
+    with_items:
+      - "/home/{{ usernam }}/bin"
+      - "/home/{{ usernam }}/misc"
+      - "/home/{{ usernam }}/.config"
+      - "/home/{{ usernam }}/.config/awesome/themes/oma"
+      - "/home/{{ usernam }}/.zsh"
+
+  - name: Copy awesome dir
+    copy:
+      src: files/awesome
+      dest: "/home/{{ usernam }}/.config"
+
+  - name: Copy rc.lua
+    template:
+      src: "files/rc.lua.j2"
+      dest: "/home/{{ usernam }}/.config/awesome/rc.lua"
+
+  - name: Copy awesome theme
+    template:
+      src: files/theme.lua.j2
+      dest: "/home/{{ usernam }}/.config/awesome/themes/oma/theme.lua"
+
+  - name: Copy Debian logo (optional)
+    copy:
+      src: files/debian.png
+      dest: "/home/{{ usernam }}/.config/awesome/themes/oma/debian.png"
+
+  - name: Get calendar for awesome
+    git:
+      repo: 'https://github.com/deficient/calendar.git'
+      dest: "/home/{{ usernam }}/.config/awesome/calendar"
+
+  - name: Get eminent for awesome
+    git:
+      repo: 'https://github.com/guotsuan/eminent.git'
+      dest: "/home/{{ usernam }}/.config/awesome/eminent"
+
+  - name: Copy .bashrc
+    template:
+      src: files/bashrc.j2
+      dest: "/home/{{ usernam }}/.bashrc"
+
+  - name: Copy background image
+    copy:
+      src: files/darkgreen.jpg
+      dest: "/home/{{ usernam }}/.config/awesome/themes/oma/darkgreen.jpg"
+
+  - name: Make autorun.sh executable
+    file:
+      path: "/home/{{ usernam }}/.config/awesome/autorun.sh"
+      mode: '0755'
+
+  - name: Copy .zshrc
+    copy:
+      src: files/zshrc
+      dest: "/home/{{ usernam }}/.zshrc"
+
+  - name: Copy .zshenv
+    copy:
+      src: files/zshenv
+      dest: "/home/{{ usernam }}/.zshenv"
+
+  - name: Copy .zaliases
+    copy:
+      src: files/zaliases
+      dest: "/home/{{ usernam }}/.zaliases"
+
+  - name: Copy Zsh theme
+    copy:
+      src: files/pisces.zsh
+      dest: "/home/{{ usernam }}/.zsh/"
+
+  - name: Copy .screenrc
+    copy:
+      src: files/screenrc
+      dest: "/home/{{ usernam }}/.screenrc"
+
+  - name: Copy .Xdefaults
+    copy:
+      src: files/Xdefaults
+      dest: "/home/{{ usernam }}/.Xdefaults"
+
+  - name: Copy redshift.conf
+    copy:
+      src: files/redshift.conf
+      dest: "/home/{{ usernam }}/.config/redshift.conf"
+
+  - name: Change permissions
+    file:
+      owner: "{{ usernam }}"
+      group: "{{ usernam }}"
+      path: "{{ item }}"
+    with_items:
+      - "/home/{{ usernam }}/.config"
+      - "/home/{{ usernam }}/.zshrc"
+      - "/home/{{ usernam }}/.zshenv"
+      - "/home/{{ usernam }}/.zaliases"
+      - "/home/{{ usernam }}/.zsh"
+      - "/home/{{ usernam }}/.screenrc"
+      - "/home/{{ usernam }}/.Xdefaults"
+

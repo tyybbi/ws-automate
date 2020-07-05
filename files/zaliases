@@ -1,0 +1,62 @@
+if [ "$TERM" != "dumb" ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=always'
+    alias dir='ls --color=auto --format=vertical'
+    alias vdir='ls --color=auto --format=long'
+fi
+
+# ls + directory related
+alias l="ls --time-style=long-iso"
+alias ll="ls -l --time-style=long-iso"
+alias la="ls -A --time-style=long-iso"
+alias lla="ls -lA --time-style=long-iso"
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+
+# Few global ones (Edit: really, nope, can do well without them)
+#alias -g §l="| less"
+#alias -g §h="| head -55"
+#alias -g §t="| tail -55"
+#alias -g §w="| wc -l"
+#alias -g §g="| grep"
+#alias -g §fx="-print0 | xargs -0"
+
+# System
+#alias Susp='sudo /usr/sbin/pm-suspend --quirk-s3-bios --quirk-s3-mode'
+#alias Susp='systemctl suspend'
+
+# Framebuffer mplayer
+#alias Mplayer='mplayer -vo fbdev -fs -vf scale=1024:-3'
+# Show vertically shot video correctly
+alias Mplayer='mplayer -vf rotate=1'
+
+# Programs
+alias bc='bc -ql'
+alias cal='ncal -C'
+alias less='less -R'
+alias grep='grep --color=always'
+#alias luakit='luakit && rm ~/.local/share/luakit/{history,cookies}.db'
+#alias sbcl='rlwrap sbcl'
+alias xterm='xterm -bg black -fg white -ls -j -s -sl 10000 +sb -fa Terminus -fs 8'
+alias tmux='tmux -2'
+alias screen='TERM=xterm-256color screen'
+
+# Misc
+alias vix='vi -c "set t_Co=16"'
+alias PAO='w3m -dump http://mnemotechnics.org/3.1415926/t/decimal-2-digit-pao.php | grep -e "^[[:digit:]]."'
+alias NH='telnet nethack.alt.org'
+alias SH='telnet sporkhack.com'
+alias IPiw='ifconfig wlp3s0 | grep "inet " | awk "{ print \$2 }"'
+alias IPo='wget -qO- http://ifconfig.co'
+alias Latexclean='rm -f *.log *.aux'
+alias Last='last | grep down | sort -n -k 5'
+alias lynx='lynx -vikeys -cfg=$HOME/.lynx.cfg'
+alias Axephyr='Xephyr -ac -br -noreset -screen 1152x720 :1 &'
+alias Arun='DISPLAY=:1.0 awesome -c $HOME/.config/awesome/test-rc.lua'
+alias 1GBnull='wget ftp://ftp.funet.fi/dev/1GBnull' # poor man's speed test
+alias Vrclua='vi $HOME/.config/awesome/rc.lua'
+alias InstDate='echo -n "*$HOST* $(uname -o) installation date: " && \ls -ld /var/log/installer | cut -d" " -f6-9'
+alias Randid="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 7 | head -n 1"
+

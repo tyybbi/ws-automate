@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+bat_state=$(acpitool -b | awk '{ print $4 }' | sed 's/,//')
+bat_charge=$(acpitool -b | awk '{ print $5 }' | sed 's/,//')
+
+if [ "$bat_state" == "Full" ]; then
+	echo "↯ $bat_charge"
+elif [ "$bat_state" == "Charged" ]; then
+	echo "↯ $bat_charge"
+elif [ "$bat_state" == "Charging" ]; then
+	echo "+ $bat_charge"
+elif [ "$bat_state" == "Discharging" ]; then
+	echo "- $bat_charge"
+else # Unknown battery state
+	echo "⌁ N/A"
+fi
+
+exit 0
+

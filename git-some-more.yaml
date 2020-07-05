@@ -28,6 +28,13 @@
       dest: "/home/{{ usernam }}/.vimrc"
       owner: "{{ usernam }}"
 
+  - name: Copy .gitconfig
+    copy:
+      remote_src: yes
+      src: "/home/{{ usernam }}/misc/git/dotfiles/gitconfig"
+      dest: "/home/{{ usernam }}/.gitconfig"
+      owner: "{{ usernam }}"
+
   - name: Make vim plugin directories
     file:
       path: "/home/{{ usernam }}/.vim/pack/plugins/start"

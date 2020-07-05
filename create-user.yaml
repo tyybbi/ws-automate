@@ -4,5 +4,5 @@
       shell: /usr/bin/zsh
       comment: "{{ usernam }}"
       password: $6$joIrwOM8B5UfpZw6$6X0odG6FW8u/eMACuuwgsxnuze0rA6gu7MNj9gUX0AzkEEv7FKe3z1FAiH3QE.0OBNIltU8wgvsz1SlZdIUST.
-      groups: sudo
+      groups: sudo,plugdev,lpadmin,audio,video,cdrom,dip,netdev
 

@@ -102,6 +102,11 @@
       src: files/redshift.conf
       dest: "/home/{{ usernam }}/.config/redshift.conf"
 
+  - name: Copy .gitconfig
+    copy:
+      src: files/gitconfig
+      dest: "/home/{{ usernam }}/.gitconfig"
+
   - name: Change permissions
     file:
       owner: "{{ usernam }}"
@@ -109,6 +114,7 @@
       path: "{{ item }}"
     with_items:
       - "/home/{{ usernam }}/.config"
+      - "/home/{{ usernam }}/.gitconfig"
       - "/home/{{ usernam }}/.zshrc"
       - "/home/{{ usernam }}/.zshenv"
       - "/home/{{ usernam }}/.zaliases"

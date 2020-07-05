@@ -9,7 +9,8 @@ function run {
 
 run "setxkbmap -option ctrl:nocaps fi"
 run redshift
+run urxvtd -q -o -f
 #run syndaemon -i 1 -d
-#run nm-applet
+run nm-applet
 #run xfce4-power-manager
 

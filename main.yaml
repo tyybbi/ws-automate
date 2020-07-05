@@ -1,11 +1,9 @@
 ---
   - hosts: all
 
-    vars_prompt:
-      - name: usernam
-        prompt: "Username to use in config files"
-        private: no
+    # Edit these according to taste
     vars:
+      usernam: stm
       is_laptop: false
 
     gather_facts: true

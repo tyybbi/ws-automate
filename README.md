@@ -4,10 +4,9 @@ Use Ansible to quickly set up Awesome WM and some custom configs on a new Debian
 
 ## Usage
 
-Requirements:
-
-- ansible
-
+- Requirements:
+    - ansible
+- Edit variables defined in `main.yaml` before running Ansible
 ```
 # At the target machine
 $ cd path/to/ws-automate
@@ -17,4 +16,5 @@ $ ansible-playbook -i <ip address>, main.yaml -u root -k
 # or
 $ ansible-playbook -i <ip address>, main.yaml -u usernam -b -k -K
 ```
+- Afterwards, tweak `rc.lua` and others
 

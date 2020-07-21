@@ -13,5 +13,6 @@
       - include: "create-user.yaml"
       - include: "copy-configs.yaml"
       - include: "git-some-more.yaml"
+      - include: "setup-vim.yaml"
       - include: "system-tweaks.yaml"
 

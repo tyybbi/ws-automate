@@ -1,19 +1,12 @@
-  - name: Make directory for personal git stuff
-    file:
-      path: "/home/{{ usernam }}/misc/git"
-      state: directory
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
+  - name: Clone scripts repo
+    git:
+      repo: 'https://github.com/tyybbi/scripts.git'
+      dest: "/tmp/scripts"
 
   - name: Clone dotfiles repo
     git:
       repo: 'https://github.com/tyybbi/dotfiles.git'
-      dest: "/home/{{ usernam }}/misc/git/dotfiles"
-
-  - name: Clone scripts repo
-    git:
-      repo: 'https://github.com/tyybbi/scripts.git'
-      dest: "/home/{{ usernam }}/misc/git/scripts"
+      dest: "/tmp/dotfiles"
 
   - name: Copy battery widget
     copy:
@@ -21,96 +14,17 @@
       dest: "/home/{{ usernam }}/bin/awesome-bat"
     when: is_laptop|bool
 
-  - name: Copy .vimrc
-    copy:
-      remote_src: yes
-      src: "/home/{{ usernam }}/misc/git/dotfiles/vimrc"
-      dest: "/home/{{ usernam }}/.vimrc"
-      owner: "{{ usernam }}"
-
   - name: Copy .gitconfig
     copy:
       remote_src: yes
-      src: "/home/{{ usernam }}/misc/git/dotfiles/gitconfig"
+      src: "/tmp/dotfiles/gitconfig"
       dest: "/home/{{ usernam }}/.gitconfig"
       owner: "{{ usernam }}"
 
-  - name: Make vim plugin directories
-    file:
-      path: "/home/{{ usernam }}/.vim/pack/plugins/start"
-      state: directory
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: '0755'
-
-  - name: Clone vim-surround
-    git:
-      repo: 'https://github.com/tpope/vim-surround.git'
-      dest: "/home/{{ usernam }}/.vim/pack/plugins/start/vim-surround"
-
-  - name: Clone vim-fugitive
-    git:
-      repo: 'https://github.com/tpope/vim-fugitive.git'
-      dest: "/home/{{ usernam }}/.vim/pack/plugins/start/vim-fugitive"
-
-  - name: Clone vim-vinegar
-    git:
-      repo: 'https://github.com/tpope/vim-vinegar.git'
-      dest: "/home/{{ usernam }}/.vim/pack/plugins/start/vim-vinegar"
-
-  - name: Clone vim-speeddating
-    git:
-      repo: 'https://github.com/tpope/vim-speeddating.git'
-      dest: "/home/{{ usernam }}/.vim/pack/plugins/start/vim-speeddating"
-
-  - name: Clone taglist
-    git:
-      repo: 'https://github.com/vim-scripts/taglist.vim.git'
-      dest: "/home/{{ usernam }}/.vim/pack/plugins/start/taglist"
-
-  - name: Clone splitjoin
-    git:
-      repo: 'https://github.com/AndrewRadev/splitjoin.vim.git'
-      dest: "/home/{{ usernam }}/.vim/pack/plugins/start/splitjoin"
-
-  - name: Clone bufexplorer
-    git:
-      repo: 'https://github.com/jlanzarotta/bufexplorer.git'
-      dest: "/home/{{ usernam }}/.vim/pack/plugins/start/bufexplorer"
-
-  - name: Clone vim-airline
-    git:
-      repo: 'https://github.com/vim-airline/vim-airline.git'
-      dest: "/home/{{ usernam }}/.vim/pack/plugins/start/vim-airline"
-
-  - name: Clone vim-easymotion
-    git:
-      repo: 'https://github.com/easymotion/vim-easymotion.git'
-      dest: "/home/{{ usernam }}/.vim/pack/plugins/start/vim-easymotion"
-
-  - name: Clone syntastic
-    git:
-      repo: 'https://github.com/vim-syntastic/syntastic.git'
-      dest: "/home/{{ usernam }}/.vim/pack/plugins/start/syntastic"
-
-  - name: Clone vim-desert256
-    git:
-      repo: 'https://github.com/brafales/vim-desert256.git'
-      dest: "/home/{{ usernam }}/.vim/pack/plugins/start/vim-desert256"
-
-  - name: Clone ctrlp
-    git:
-      repo: 'https://github.com/ctrlpvim/ctrlp.vim.git'
-      dest: "/home/{{ usernam }}/.vim/pack/plugins/start/ctrlp"
-
-  - name: Change permissions
+  - name: Change ~/bin permissions
     file:
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      path: "{{ item }}"
+      path: "/home/{{ usernam }}/bin"
       recurse: yes
-    with_items:
-      - "/home/{{ usernam }}/bin"
-      - "/home/{{ usernam }}/misc"
-      - "/home/{{ usernam }}/.vim"
 

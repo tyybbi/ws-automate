@@ -10,6 +10,7 @@
       src: "/tmp/dotfiles/vimrc"
       dest: "/home/{{ usernam }}/.vimrc"
       owner: "{{ usernam }}"
+      group: "{{ usernam }}"
 
   - name: Make vim plugin directories
     file:

@@ -36,11 +36,13 @@
     git:
       repo: 'https://github.com/deficient/calendar.git'
       dest: "/home/{{ usernam }}/.config/awesome/calendar"
+      version: master
 
   - name: Get eminent for awesome
     git:
       repo: 'https://github.com/guotsuan/eminent.git'
       dest: "/home/{{ usernam }}/.config/awesome/eminent"
+      version: master
 
   - name: Change permissions
     file:

@@ -2,11 +2,13 @@
     git:
       repo: 'https://github.com/tyybbi/scripts.git'
       dest: "/tmp/scripts"
+      version: master
 
   - name: Clone dotfiles repo
     git:
       repo: 'https://github.com/tyybbi/dotfiles.git'
       dest: "/tmp/dotfiles"
+      version: master
 
   - name: Copy battery widget
     copy:

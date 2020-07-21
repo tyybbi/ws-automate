@@ -2,6 +2,7 @@
     git:
       repo: 'https://github.com/tyybbi/dotfiles.git'
       dest: "/tmp/dotfiles"
+      version: master
 
   - name: Copy .vimrc
     copy:
@@ -22,61 +23,73 @@
     git:
       repo: 'https://github.com/tpope/vim-surround.git'
       dest: "/home/{{ usernam }}/.vim/pack/plugins/start/vim-surround"
+      version: master
 
   - name: Clone vim-fugitive
     git:
       repo: 'https://github.com/tpope/vim-fugitive.git'
       dest: "/home/{{ usernam }}/.vim/pack/plugins/start/vim-fugitive"
+      version: master
 
   - name: Clone vim-vinegar
     git:
       repo: 'https://github.com/tpope/vim-vinegar.git'
       dest: "/home/{{ usernam }}/.vim/pack/plugins/start/vim-vinegar"
+      version: master
 
   - name: Clone vim-speeddating
     git:
       repo: 'https://github.com/tpope/vim-speeddating.git'
       dest: "/home/{{ usernam }}/.vim/pack/plugins/start/vim-speeddating"
+      version: master
 
   - name: Clone taglist
     git:
       repo: 'https://github.com/vim-scripts/taglist.vim.git'
       dest: "/home/{{ usernam }}/.vim/pack/plugins/start/taglist"
+      version: master
 
   - name: Clone splitjoin
     git:
       repo: 'https://github.com/AndrewRadev/splitjoin.vim.git'
       dest: "/home/{{ usernam }}/.vim/pack/plugins/start/splitjoin"
+      version: master
 
   - name: Clone bufexplorer
     git:
       repo: 'https://github.com/jlanzarotta/bufexplorer.git'
       dest: "/home/{{ usernam }}/.vim/pack/plugins/start/bufexplorer"
+      version: master
 
   - name: Clone vim-airline
     git:
       repo: 'https://github.com/vim-airline/vim-airline.git'
       dest: "/home/{{ usernam }}/.vim/pack/plugins/start/vim-airline"
+      version: master
 
   - name: Clone vim-easymotion
     git:
       repo: 'https://github.com/easymotion/vim-easymotion.git'
       dest: "/home/{{ usernam }}/.vim/pack/plugins/start/vim-easymotion"
+      version: master
 
   - name: Clone syntastic
     git:
       repo: 'https://github.com/vim-syntastic/syntastic.git'
       dest: "/home/{{ usernam }}/.vim/pack/plugins/start/syntastic"
+      version: master
 
   - name: Clone vim-desert256
     git:
       repo: 'https://github.com/brafales/vim-desert256.git'
       dest: "/home/{{ usernam }}/.vim/pack/plugins/start/vim-desert256"
+      version: master
 
   - name: Clone ctrlp
     git:
       repo: 'https://github.com/ctrlpvim/ctrlp.vim.git'
       dest: "/home/{{ usernam }}/.vim/pack/plugins/start/ctrlp"
+      version: master
 
   - name: Change permissions
     file:

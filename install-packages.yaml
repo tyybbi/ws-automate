@@ -26,6 +26,7 @@
         - tree
         - screen
         - suckless-tools
+        - sudo
         - xinit
         - vim-nox
         - zsh

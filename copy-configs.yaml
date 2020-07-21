@@ -6,8 +6,6 @@
       group: "{{ usernam }}"
       mode: '0755'
     with_items:
-      - "/home/{{ usernam }}/bin"
-      - "/home/{{ usernam }}/misc"
       - "/home/{{ usernam }}/.config"
       - "/home/{{ usernam }}/.config/awesome/themes/oma"
       - "/home/{{ usernam }}/.zsh"

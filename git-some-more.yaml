@@ -17,20 +17,14 @@
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
       mode: '0755'
-    when: is_laptop|bool
 
   - name: Copy battery widget
     copy:
       src: files/awesome-bat
       dest: "/home/{{ usernam }}/bin/awesome-bat"
-    when: is_laptop|bool
-
-  - name: Change ~/bin permissions
-    file:
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      path: "/home/{{ usernam }}/bin"
-      recurse: yes
+      mode: '0755'
     when: is_laptop|bool
 
   - name: Copy .gitconfig

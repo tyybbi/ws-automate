@@ -4,6 +4,12 @@
       dest: "/tmp/dotfiles"
       version: master
 
+  - name: Clone scripts repo
+    git:
+      repo: 'https://github.com/tyybbi/scripts.git'
+      dest: "/tmp/scripts"
+      version: master
+
   - name: Copy .vimrc
     copy:
       remote_src: yes
@@ -16,6 +22,23 @@
     file:
       path: "/home/{{ usernam }}/.vim/pack/plugins/start"
       state: directory
+      owner: "{{ usernam }}"
+      group: "{{ usernam }}"
+      mode: '0755'
+
+  - name: Create ~/bin (for pull-all to reside)
+    file:
+      path: "/home/{{ usernam }}/bin"
+      state: directory
+      owner: "{{ usernam }}"
+      group: "{{ usernam }}"
+      mode: '0755'
+
+  - name: Copy pull-all
+    copy:
+      remote_src: yes
+      src: "/tmp/scripts/pull-all"
+      dest: "/home/{{ usernam }}/bin/pull-all"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
       mode: '0755'

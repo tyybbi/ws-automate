@@ -33,6 +33,8 @@
         - sudo
         - xinit
         - vim-nox
+        - w3m
+        - w3m-img
         - zsh
         - zsh-doc
 

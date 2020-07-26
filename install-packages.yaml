@@ -20,6 +20,10 @@
         - inxi
         - jq
         - network-manager
+		# In case we'd like pulseaudio
+        #- pavucontrol
+        #- pulseaudio
+        #- pulseaudio-utils
         - ranger
         - redshift
         - rxvt-unicode

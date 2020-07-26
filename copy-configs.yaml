@@ -10,10 +10,11 @@
       - "/home/{{ usernam }}/.config/awesome/themes/oma"
       - "/home/{{ usernam }}/.zsh"
 
-  - name: Copy awesome dir
+  - name: Copy autorun.sh
     copy:
-      src: files/awesome
-      dest: "/home/{{ usernam }}/.config"
+      src: files/autorun.sh
+      dest: "/home/{{ usernam }}/.config/awesome/autorun.sh"
+      mode: '0755'
 
   - name: Copy rc.lua
     template:
@@ -42,16 +43,6 @@
       dest: "/home/{{ usernam }}/.config/awesome/eminent"
       version: master
 
-  - name: Change permissions
-    file:
-      recurse: yes
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      path: "{{ item }}"
-    with_items:
-        - "/home/{{ usernam }}/.config/awesome/calendar/.git"
-        - "/home/{{ usernam }}/.config/awesome/eminent/.git"
-
   - name: Copy .bashrc
     template:
       src: files/bashrc.j2
@@ -61,11 +52,6 @@
     copy:
       src: files/darkgreen.jpg
       dest: "/home/{{ usernam }}/.config/awesome/themes/oma/darkgreen.jpg"
-
-  - name: Make autorun.sh executable
-    file:
-      path: "/home/{{ usernam }}/.config/awesome/autorun.sh"
-      mode: '0755'
 
   - name: Copy .zshrc
     copy:
@@ -104,16 +90,22 @@
 
   - name: Change permissions
     file:
+      recurse: yes
+      path: "/home/{{ usernam }}/.config"
+      owner: "{{ usernam }}"
+      group: "{{ usernam }}"
+
+  - name: Change permissions
+    file:
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
       path: "{{ item }}"
     with_items:
-      - "/home/{{ usernam }}/.config"
+      - "/home/{{ usernam }}/.config/redshift.conf"
       - "/home/{{ usernam }}/.zshrc"
       - "/home/{{ usernam }}/.zshenv"
       - "/home/{{ usernam }}/.zaliases"
       - "/home/{{ usernam }}/.zsh"
       - "/home/{{ usernam }}/.screenrc"
-      - "/home/{{ usernam }}/.Xdefaults"
       - "/home/{{ usernam }}/.Xdefaults"
 

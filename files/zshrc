@@ -120,37 +120,21 @@ bindkey -e
 # Clear cmdline temporarily, execute another cmd, and return the original cmd.
 # The function is 'push-line' and by default it's bound to alt-q (q)
 
-## Alt+Ctrl-h
-#backward-kill-dir () {
-#    local WORDCHARS=${WORDCHARS/\/}
-#    zle backward-kill-word
-#}
-#zle -N backward-kill-dir
-#bindkey '^[' backward-kill-dir
-#
-#
-## Alt+Left
-#backward-word-dir () {
-#    local WORDCHARS=${WORDCHARS/\/}
-#    zle backward-word
-#}
-#zle -N backward-word-dir
-#bindkey "^[[1;3C" forward-word-dir
-#
-## Alt+Right
-#forward-word-dir () {
-#    local WORDCHARS=${WORDCHARS/\/}
-#    zle forward-word
-#}
-#zle -N forward-word-dir
-#bindkey "^[[1;3D" backward-word-dir
+# Make ctrl-w and alt-ctrl-h behave like they do in BASH
+autoload -Uz backward-kill-word-match
+
+bindkey '^W' backward-kill-space-word
+zle -N backward-kill-space-word backward-kill-word-match
+zstyle :zle:backward-kill-space-word word-style space
+
+bindkey '^[^H' backward-kill-bash-word
+zle -N backward-kill-bash-word backward-kill-word-match
+zstyle :zle:backward-kill-bash-word word-style bash
 
 # Edit command inside $EDITOR
 zle -N edit-command-line
 bindkey '^xe'   edit-command-line                       # Ctrl-x e
 bindkey '^x^e'  edit-command-line                       # Ctrl-x Ctrl-e
-bindkey ""    backward-delete-char                    # Ctrl-h
-bindkey ""    backward-delete-word                    # Ctrl-w
 bindkey '^[OH'  beginning-of-line                       # Home
 bindkey '^[OF'  end-of-line                             # End
 bindkey "^r"    history-incremental-search-backward     # Ctrl-r

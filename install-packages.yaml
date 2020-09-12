@@ -17,6 +17,7 @@
         - exuberant-ctags
         - feh
         - git
+        - imagemagick
         - inxi
         - jq
         - network-manager

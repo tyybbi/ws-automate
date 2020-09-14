@@ -53,7 +53,7 @@ URxvt*borderLess: false
 URxvt*transparency: true
 URxvt*inheritPixmap: true
 URxvt*tintColor: white
-URxvt*shading: 10
+URxvt*shading: 30
 
 ## geometry and font
 !URxvt.letterSpace: -1

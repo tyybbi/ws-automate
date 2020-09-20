@@ -21,7 +21,7 @@
         - inxi
         - jq
         - network-manager
-		# In case we'd like pulseaudio
+        # In case we'd like pulseaudio
         #- pavucontrol
         #- pulseaudio
         #- pulseaudio-utils

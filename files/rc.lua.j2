@@ -777,6 +777,7 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
+awful.spawn.with_shell("setxkbmap -option ctrl:nocaps fi")
 
 ---- Timers
 --timer_batbox = gears.timer { timeout = 60 }

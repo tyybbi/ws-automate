@@ -7,7 +7,6 @@ function run {
   fi
 }
 
-run "setxkbmap -option ctrl:nocaps fi"
 run redshift
 run urxvtd -q -o -f
 #run syndaemon -i 1 -d

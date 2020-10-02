@@ -26,7 +26,7 @@
       group: "{{ usernam }}"
       mode: '0755'
 
-  - name: Create ~/bin (for pull-all to reside)
+  - name: Create ~/bin (for update-vim-plugins to reside)
     file:
       path: "/home/{{ usernam }}/bin"
       state: directory
@@ -34,11 +34,11 @@
       group: "{{ usernam }}"
       mode: '0755'
 
-  - name: Copy pull-all
+  - name: Copy update-vim-plugins
     copy:
       remote_src: yes
-      src: "/tmp/scripts/pull-all"
-      dest: "/home/{{ usernam }}/bin/pull-all"
+      src: "/tmp/scripts/update-vim-plugins"
+      dest: "/home/{{ usernam }}/bin/update-vim-plugins"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
       mode: '0755'

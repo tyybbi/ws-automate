@@ -146,8 +146,8 @@ bindkey 'Od'  backward-word                           # Alt-b (Esc b)
 bindkey '^[[6~' end-of-history                          # PgDn
 bindkey '^[[5~' beginning-of-history                    # PgUp
 bindkey 'd'   describe-key-briefly                    # Ctrl-x d
-#bindkey "^[[1;5C" forward-word                          # Ctrl-Right
-#bindkey "^[[1;5D" backward-word                         # Ctrl-Left
+bindkey "^[[1;5C" forward-word                          # Ctrl-Right
+bindkey "^[[1;5D" backward-word                         # Ctrl-Left
 
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:default' list-prompt '%S%M matches%s'

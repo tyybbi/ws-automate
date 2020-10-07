@@ -6,6 +6,7 @@ setopt APPEND_HISTORY
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt nohup
+setopt interactivecomments
 
 setopt prompt_subst
 autoload -Uz vcs_info

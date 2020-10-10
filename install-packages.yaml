@@ -17,6 +17,7 @@
         - exuberant-ctags
         - feh
         - git
+        - htop
         - imagemagick
         - inxi
         - jq
@@ -27,6 +28,7 @@
         #- pulseaudio-utils
         - ranger
         - redshift
+        - rsync
         - rxvt-unicode
         - tree
         - screen

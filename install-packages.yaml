@@ -34,10 +34,12 @@
         - screen
         - suckless-tools
         - sudo
+        - unzip
         - xinit
         - vim-nox
         - w3m
         - w3m-img
+        - zip
         - zsh
         - zsh-doc
 

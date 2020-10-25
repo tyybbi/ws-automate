@@ -21,11 +21,13 @@
         - imagemagick
         - inxi
         - jq
+        - mlocate
         - network-manager
         # In case we'd like pulseaudio
         #- pavucontrol
         #- pulseaudio
         #- pulseaudio-utils
+        - plocate
         - ranger
         - redshift
         - rsync

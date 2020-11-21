@@ -23,6 +23,7 @@
         - jq
         - mlocate
         - network-manager
+        - nmap
         # In case we'd like pulseaudio
         #- pavucontrol
         #- pulseaudio
@@ -36,6 +37,7 @@
         - screen
         - suckless-tools
         - sudo
+        - tig
         - unzip
         - xinit
         - vim-nox

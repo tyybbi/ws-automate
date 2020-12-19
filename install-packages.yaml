@@ -14,6 +14,7 @@
         - bash-completion
         - bc
         - dbus-x11
+        - exiftool
         - exuberant-ctags
         - feh
         - git

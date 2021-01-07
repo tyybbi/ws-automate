@@ -14,6 +14,7 @@
         - bash-completion
         - bc
         - dbus-x11
+        - dnsutils
         - exiftool
         - exuberant-ctags
         - feh
@@ -23,6 +24,7 @@
         - inxi
         - jq
         - mlocate
+        - net-tools
         - network-manager
         - nmap
         # In case we'd like pulseaudio

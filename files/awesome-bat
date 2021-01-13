@@ -12,7 +12,7 @@ elif [ "$bat_state" == "Charging" ]; then
 elif [ "$bat_state" == "Discharging" ]; then
 	echo "- $bat_charge"
 else # Unknown battery state
-	echo "⌁ N/A"
+	echo "? $bat_charge"
 fi
 
 exit 0

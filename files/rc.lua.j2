@@ -153,6 +153,10 @@ end
 fswidget = wibox.widget.textbox()
 vicious.register(fswidget, vicious.widgets.fs, "/ ${/ used_p}%")
 
+-- Show kernel version
+kernelwidget = wibox.widget.textbox()
+kernelwidget:set_markup(execute_command("uname -r"))
+
 -- FS widget for /home
 --fswidget_home = wibox.widget.textbox()
 --vicious.register(fswidget_home, vicious.widgets.fs, "/home ${/home used_p}%")
@@ -368,6 +372,8 @@ awful.screen.connect_for_each_screen(function(s)
     left_layout:add(cpuwidget)
     left_layout:add(separator)
     left_layout:add(loadwidget)
+    left_layout:add(separator)
+    left_layout:add(kernelwidget)
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()

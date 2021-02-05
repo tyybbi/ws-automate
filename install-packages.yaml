@@ -36,10 +36,10 @@
         - rsync
         - rxvt-unicode
         - tree
-        - screen
         - suckless-tools
         - sudo
         - tig
+        - tmux
         - universal-ctags
         - unzip
         - xinit

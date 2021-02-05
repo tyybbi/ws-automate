@@ -73,10 +73,10 @@
       src: files/pisces.zsh
       dest: "/home/{{ usernam }}/.zsh/"
 
-  - name: Copy .screenrc
+  - name: Copy .tmux.conf
     copy:
-      src: files/screenrc
-      dest: "/home/{{ usernam }}/.screenrc"
+      src: files/tmux.conf
+      dest: "/home/{{ usernam }}/.tmux.conf"
 
   - name: Copy .Xdefaults
     copy:
@@ -106,6 +106,6 @@
       - "/home/{{ usernam }}/.zshenv"
       - "/home/{{ usernam }}/.zaliases"
       - "/home/{{ usernam }}/.zsh"
-      - "/home/{{ usernam }}/.screenrc"
+      - "/home/{{ usernam }}/.tmux.conf"
       - "/home/{{ usernam }}/.Xdefaults"
 

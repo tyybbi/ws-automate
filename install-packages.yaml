@@ -16,7 +16,6 @@
         - dbus-x11
         - dnsutils
         - exiftool
-        - exuberant-ctags
         - feh
         - git
         - htop
@@ -41,6 +40,7 @@
         - suckless-tools
         - sudo
         - tig
+        - universal-ctags
         - unzip
         - xinit
         - vim-nox

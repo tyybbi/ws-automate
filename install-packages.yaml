@@ -26,11 +26,10 @@
         - net-tools
         - network-manager
         - nmap
-        # In case we'd like pulseaudio
-        #- pavucontrol
-        #- pulseaudio
-        #- pulseaudio-utils
+        - pavucontrol
         - plocate
+        - pulseaudio
+        - pulseaudio-utils
         - ranger
         - redshift
         - rsync

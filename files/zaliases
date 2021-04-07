@@ -16,12 +16,12 @@ alias -g .....='../../../..'
 alias -g ......='../../../../..'
 
 # Few global ones (Edit: really, nope, can do well without them)
-#alias -g §l="| less"
-#alias -g §h="| head -55"
-#alias -g §t="| tail -55"
+alias -g ål="| less"
+alias -g åh="| head -55"
+alias -g åt="| tail -55"
 #alias -g §w="| wc -l"
-#alias -g §g="| grep"
-#alias -g §fx="-print0 | xargs -0"
+#alias -g åg="| grep"
+#alias -g åfx="-print0 | xargs -0"
 
 # System
 #alias Susp='sudo /usr/sbin/pm-suspend --quirk-s3-bios --quirk-s3-mode'

@@ -25,7 +25,7 @@
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
       mode: '0755'
-    when: is_laptop|bool
+    tags: [ never, laptop ]
 
   - name: Copy .gitconfig
     copy:

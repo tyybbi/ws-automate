@@ -11,12 +11,15 @@
         - awesome-extra
         - apt-show-versions
         - aptitude
+        - audacity
         - bash-completion
         - bc
         - dbus-x11
         - dnsutils
         - exiftool
         - feh
+        - gimp
+        - gimp-plugin-registry
         - git
         - htop
         - imagemagick
@@ -53,5 +56,5 @@
     apt:
       pkg:
         - acpitool
-    when: is_laptop|bool
+    tags: [ never, laptop ]
 

@@ -4,7 +4,6 @@
     # Edit these according to taste
     vars:
       usernam: stm
-      is_laptop: false
 
     gather_facts: true
     force_handlers: true

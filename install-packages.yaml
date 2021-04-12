@@ -30,7 +30,6 @@
         - network-manager
         - nmap
         - pavucontrol
-        - plocate
         - pulseaudio
         - pulseaudio-utils
         - ranger

@@ -41,18 +41,14 @@ alias grep='grep --color=always'
 #alias sbcl='rlwrap sbcl'
 alias xterm='xterm -bg black -fg white -ls -j -s -sl 10000 +sb -fa Terminus -fs 8'
 alias tmux='tmux -2'
-alias screen='TERM=xterm-256color screen'
 
 # Misc
 alias vix='vi -c "set t_Co=16"'
 alias PAO='w3m -dump http://mnemotechnics.org/3.1415926/t/decimal-2-digit-pao.php | grep -e "^[[:digit:]]."'
-alias NH='telnet nethack.alt.org'
-alias SH='telnet sporkhack.com'
 alias IPiw='ifconfig wlp3s0 | grep "inet " | awk "{ print \$2 }"'
 alias IPo='wget -qO- http://ifconfig.co'
 alias Latexclean='rm -f *.log *.aux'
 alias Last='last | grep down | sort -n -k 5'
-alias lynx='lynx -vikeys -cfg=$HOME/.lynx.cfg'
 alias Axephyr='Xephyr -ac -br -noreset -screen 1152x720 :1 &'
 alias Arun='DISPLAY=:1.0 awesome -c $HOME/.config/awesome/test-rc.lua'
 alias 1GBnull='wget ftp://ftp.funet.fi/dev/1GBnull' # poor man's speed test

@@ -35,3 +35,12 @@
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
 
+  - name: Copy .cvimrc
+    copy:
+      remote_src: yes
+      src: "/tmp/dotfiles/cvimrc.j2"
+      dest: "/home/{{ usernam }}/.cvimrc"
+      owner: "{{ usernam }}"
+      group: "{{ usernam }}"
+    tags: [ never, cvim ]
+

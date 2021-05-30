@@ -51,6 +51,20 @@
         - zsh
         - zsh-doc
 
+  - name: Install chromium
+    apt:
+      pkg:
+        - chromium
+    when: ansible_distribution == 'Debian'
+    tags: [ never, cvim ]
+
+  - name: Install chromium-browser
+    apt:
+      pkg:
+        - chromium-browser
+    when: ansible_distribution == 'Ubuntu'
+    tags: [ never, cvim ]
+
   - name: Install acpitool
     apt:
       pkg:

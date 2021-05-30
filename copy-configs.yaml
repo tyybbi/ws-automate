@@ -21,6 +21,12 @@
       src: "files/rc.lua.j2"
       dest: "/home/{{ usernam }}/.config/awesome/rc.lua"
 
+  - name: Copy rc.lua (w/ battery widget enabled)
+    template:
+      src: "files/laptop-rc.lua.j2"
+      dest: "/home/{{ usernam }}/.config/awesome/rc.lua"
+    tags: [ never, laptop ]
+
   - name: Copy awesome theme
     template:
       src: files/theme.lua.j2

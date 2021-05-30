@@ -25,6 +25,8 @@
     template:
       src: "files/laptop-rc.lua.j2"
       dest: "/home/{{ usernam }}/.config/awesome/rc.lua"
+      owner: "{{ usernam }}"
+      group: "{{ usernam }}"
     tags: [ never, laptop ]
 
   - name: Copy awesome theme

@@ -10,6 +10,22 @@
       dest: "/tmp/dotfiles"
       version: master
 
+  - name: Create ~/misc if needed
+    file:
+      path: "/home/{{ usernam }}/misc"
+      state: directory
+      owner: "{{ usernam }}"
+      group: "{{ usernam }}"
+      mode: '0755'
+    tags: [ never, cvim ]
+
+  - name: Clone chromium-vim repo
+    git:
+      repo: 'https://github.com/tyybbi/chromium-vim.git'
+      dest: "/home/{{ usernam }}/misc/chromium-vim"
+      version: master
+    tags: [ never, cvim ]
+
   - name: Create ~/bin if needed
     file:
       path: "/home/{{ usernam }}/bin"

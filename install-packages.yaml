@@ -36,11 +36,12 @@
         - redshift
         - rsync
         - rxvt-unicode
-        - tree
+        - scrot
         - suckless-tools
         - sudo
         - tig
         - tmux
+        - tree
         - universal-ctags
         - unzip
         - xinit

@@ -25,10 +25,12 @@
         - imagemagick
         - inxi
         - jq
+        - pandoc
         - mlocate
         - net-tools
         - network-manager
         - nmap
+        - pandoc
         - pavucontrol
         - pulseaudio
         - pulseaudio-utils

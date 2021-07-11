@@ -17,6 +17,7 @@
       dest: "/home/{{ usernam }}/.vimrc"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
+      mode: '0644'
 
   - name: Make vim plugin directories
     file:

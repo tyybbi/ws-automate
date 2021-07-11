@@ -1,0 +1,17 @@
+---
+  - hosts: all
+
+    # Edit these according to taste
+    vars:
+      usernam: stm
+
+    gather_facts: true
+    force_handlers: true
+    tasks:
+      - include: "10-install-packages.yml"
+      - include: "20-create-user.yml"
+      - include: "30-copy-configs.yml"
+      - include: "40-git-some-more.yml"
+      - include: "50-setup-vim.yml"
+      - include: "60-system-tweaks.yml"
+

@@ -50,6 +50,7 @@
       dest: "/home/{{ usernam }}/.gitconfig"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
+      mode: '0644'
 
   - name: Copy .cvimrc
     copy:
@@ -58,5 +59,6 @@
       dest: "/home/{{ usernam }}/.cvimrc"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
+      mode: '0644'
     tags: [ never, cvim ]
 

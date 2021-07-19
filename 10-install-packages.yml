@@ -26,7 +26,9 @@
         - inxi
         - jq
         - pandoc
+        - mediainfo
         - mlocate
+        - ncal
         - net-tools
         - network-manager
         - nmap

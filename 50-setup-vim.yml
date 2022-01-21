@@ -116,6 +116,12 @@
       dest: "/home/{{ usernam }}/.vim/pack/plugins/start/ctrlp"
       version: master
 
+  - name: Clone ansible-doc
+    git:
+      repo: 'https://github.com/takelley1/ansible-doc.vim.git'
+      dest: "/home/{{ usernam }}/.vim/pack/plugins/start/ansible-doc.vim"
+      version: master
+
   - name: Change permissions
     file:
       owner: "{{ usernam }}"

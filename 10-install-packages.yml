@@ -7,6 +7,8 @@
     apt:
       pkg:
         - alsa-utils
+        - ansible
+        - ansible-lint
         - awesome
         - awesome-extra
         - apt-show-versions
@@ -18,7 +20,7 @@
         - dnsutils
         - exiftool
         - feh
-        - fonts-terminus
+        - fonts-firacode
         - gimp
         - gimp-plugin-registry
         - git
@@ -53,6 +55,7 @@
         - unzip
         - xfonts-terminus
         - xinit
+        - yamllint
         - vim-nox
         - w3m
         - w3m-img

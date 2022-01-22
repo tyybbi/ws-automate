@@ -104,10 +104,10 @@
       dest: "/home/{{ usernam }}/.vim/pack/plugins/start/syntastic"
       version: master
 
-  - name: Clone vim-desert256
+  - name: Clone vim-solarized8
     git:
-      repo: 'https://github.com/brafales/vim-desert256.git'
-      dest: "/home/{{ usernam }}/.vim/pack/plugins/start/vim-desert256"
+      repo: 'https://github.com/lifepillar/vim-solarized8.git'
+      dest: "/home/{{ usernam }}/.vim/pack/plugins/start/vim-solarized8"
       version: master
 
   - name: Clone ctrlp
@@ -120,6 +120,24 @@
     git:
       repo: 'https://github.com/takelley1/ansible-doc.vim.git'
       dest: "/home/{{ usernam }}/.vim/pack/plugins/start/ansible-doc.vim"
+      version: master
+
+  - name: Clone ansible-vim
+    ansible.builtin.git:
+      repo: 'https://github.com/pearofducks/ansible-vim.git'
+      dest: "/home/{{ usernam }}/.vim/pack/plugins/start/ansible-vim"
+      version: master
+
+  # - name: Clone coc.nvim
+  #   ansible.builtin.git:
+  #     repo: 'https://github.com/neoclide/coc.nvim.git'
+  #     dest: "/home/{{ usernam }}/.vim/pack/plugins/start/coc.nvim"
+  #     version: master
+
+  - name: Clone vim-commentary
+    ansible.builtin.git:
+      repo: 'https://github.com/tpope/vim-commentary.git'
+      dest: "/home/{{ usernam }}/.vim/pack/plugins/start/vim-commentary"
       version: master
 
   - name: Change permissions

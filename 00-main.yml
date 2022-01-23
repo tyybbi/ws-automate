@@ -3,7 +3,7 @@
 
     # Edit these according to taste
     vars:
-      usernam: stm
+      usernam: luser
 
     gather_facts: true
     force_handlers: true

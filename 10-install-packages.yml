@@ -16,6 +16,7 @@
         - audacity
         - bash-completion
         - bc
+        - brightnessctl
         - dbus-x11
         - dnsutils
         - exiftool

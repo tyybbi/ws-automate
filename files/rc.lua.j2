@@ -514,6 +514,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey2, }, "l", function () awful.spawn ("slock") end,
               {description = "lock the screen", group = "system"}),
     -- If using Corsair Strafe Mk.2 (or similar fancy keyboard)
+    --awful.key({      }, "XF86MonBrightnessUp", function () awful.spawn ("brightnessctl set 5%+") end,
+    --          {description = "raise brightness ", group = "misc"}),
+    --awful.key({      }, "XF86MonBrightnessDown", function () awful.spawn ("brightnessctl set 5%-") end,
+    --          {description = "lower brightness ", group = "misc"}),
     awful.key({      }, "XF86AudioRaiseVolume", function () awful.spawn ("pactl set-sink-volume @DEFAULT_SINK@ +5%") end,
               {description = "raise audio volume", group = "misc"}),
     awful.key({      }, "XF86AudioLowerVolume", function () awful.spawn ("pactl set-sink-volume @DEFAULT_SINK@ -5%") end,

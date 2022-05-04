@@ -53,13 +53,15 @@ URxvt*borderLess: false
 URxvt*transparency: true
 URxvt*inheritPixmap: true
 URxvt*tintColor: white
-URxvt*shading: 30
+URxvt*shading: 15
 
 ## geometry and font
-!URxvt.letterSpace: -1
+URxvt.letterSpace: -1
 URxvt*geometry: 80×24
-URxvt*font: xft:FiraCode:size=10:antialias=true
-URxvt*boldFont: xft:FiraCode:size=10:antialias=true
+URxvt*font: xft:Monospace:regular:size=10:antialias=true
+URxvt*boldFont: xft:Monospace:regular:size=10:antialias=true
+!URxvt*font: xft:FiraCode:size=10:antialias=true
+!URxvt*boldFont: xft:FiraCode:size=10:antialias=true
 !URxvt*font: xft:Terminus:size=14:antialias=false
 !URxvt*boldFont: xft:Terminus:bold:size=8:antialias=false
 ## disable boldFont since terminus cannot handle it under 14px

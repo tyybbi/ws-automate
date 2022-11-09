@@ -120,7 +120,7 @@
     git:
       repo: 'https://github.com/takelley1/ansible-doc.vim.git'
       dest: "/home/{{ usernam }}/.vim/pack/plugins/start/ansible-doc.vim"
-      version: master
+      version: main
 
   - name: Clone ansible-vim
     ansible.builtin.git:

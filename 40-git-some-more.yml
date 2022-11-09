@@ -16,7 +16,7 @@
       state: directory
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0755'
+      mode: 0750
     tags: [ never, cvim ]
 
   - name: Clone chromium-vim repo
@@ -32,7 +32,7 @@
       state: directory
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0755'
+      mode: 0750
 
   - name: Copy battery widget
     copy:
@@ -40,7 +40,7 @@
       dest: "/home/{{ usernam }}/bin/awesome-bat"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0755'
+      mode: 0750
     tags: [ never, laptop ]
 
   - name: Copy .gitconfig
@@ -50,7 +50,7 @@
       dest: "/home/{{ usernam }}/.gitconfig"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0644'
+      mode: 0640
 
   - name: Copy .cvimrc
     copy:
@@ -59,6 +59,6 @@
       dest: "/home/{{ usernam }}/.cvimrc"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0644'
+      mode: 0640
     tags: [ never, cvim ]
 

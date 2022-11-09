@@ -4,7 +4,7 @@
       state: directory
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0755'
+      mode: 0750
     with_items:
       - "/home/{{ usernam }}/.config"
       - "/home/{{ usernam }}/.config/awesome/themes/oma"
@@ -16,7 +16,7 @@
       dest: "/home/{{ usernam }}/.config/awesome/autorun.sh"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0755'
+      mode: 0750
 
   - name: Copy rc.lua
     template:
@@ -24,7 +24,7 @@
       dest: "/home/{{ usernam }}/.config/awesome/rc.lua"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0644'
+      mode: 0640
 
   - name: Copy rc.lua (w/ battery widget enabled)
     template:
@@ -32,7 +32,7 @@
       dest: "/home/{{ usernam }}/.config/awesome/rc.lua"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0644'
+      mode: 0640
     tags: [ never, laptop ]
 
   - name: Copy awesome theme
@@ -41,7 +41,7 @@
       dest: "/home/{{ usernam }}/.config/awesome/themes/oma/theme.lua"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0644'
+      mode: 0640
 
   - name: Copy Debian logo (optional)
     copy:
@@ -49,7 +49,7 @@
       dest: "/home/{{ usernam }}/.config/awesome/themes/oma/debian.png"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0644'
+      mode: 0640
 
   - name: Get calendar for awesome
     git:
@@ -69,15 +69,15 @@
       dest: "/home/{{ usernam }}/.bashrc"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0644'
+      mode: 0640
 
   - name: Copy background image
     copy:
-      src: files/darkgreen.jpg
-      dest: "/home/{{ usernam }}/.config/awesome/themes/oma/darkgreen.jpg"
+      src: files/riutta.png
+      dest: "/home/{{ usernam }}/.config/awesome/themes/oma/riutta.png"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0644'
+      mode: 0640
 
   - name: Copy .zshrc
     copy:
@@ -85,7 +85,7 @@
       dest: "/home/{{ usernam }}/.zshrc"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0644'
+      mode: 0640
 
   - name: Copy .zshenv
     copy:
@@ -93,7 +93,7 @@
       dest: "/home/{{ usernam }}/.zshenv"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0644'
+      mode: 0640
 
   - name: Copy .zaliases
     copy:
@@ -101,7 +101,7 @@
       dest: "/home/{{ usernam }}/.zaliases"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0644'
+      mode: 0640
 
   - name: Copy Zsh theme
     copy:
@@ -109,7 +109,7 @@
       dest: "/home/{{ usernam }}/.zsh/"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0644'
+      mode: 0640
 
   - name: Copy .tmux.conf
     copy:
@@ -117,7 +117,7 @@
       dest: "/home/{{ usernam }}/.tmux.conf"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0644'
+      mode: 0640
 
   - name: Copy .Xdefaults
     copy:
@@ -125,7 +125,7 @@
       dest: "/home/{{ usernam }}/.Xdefaults"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0644'
+      mode: 0640
 
   - name: Copy redshift.conf
     copy:
@@ -133,13 +133,11 @@
       dest: "/home/{{ usernam }}/.config/redshift.conf"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0644'
+      mode: 0640
 
-  - name: Change permissions
+  - name: Ensure config dir ownership
     file:
       recurse: yes
       path: "/home/{{ usernam }}/.config"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0644'
-

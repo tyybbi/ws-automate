@@ -17,7 +17,7 @@
       dest: "/home/{{ usernam }}/.vimrc"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0644'
+      mode: 0640
 
   - name: Make vim plugin directories
     file:
@@ -25,7 +25,7 @@
       state: directory
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0755'
+      mode: 0750
 
   - name: Create ~/bin (for update-vim-plugins to reside)
     file:
@@ -33,7 +33,7 @@
       state: directory
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0755'
+      mode: 0750
 
   - name: Copy update-vim-plugins
     copy:
@@ -42,7 +42,7 @@
       dest: "/home/{{ usernam }}/bin/update-vim-plugins"
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
-      mode: '0755'
+      mode: 0750
 
   - name: Clone vim-surround
     git:
@@ -146,4 +146,3 @@
       group: "{{ usernam }}"
       path: "/home/{{ usernam }}/.vim"
       recurse: yes
-

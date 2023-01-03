@@ -38,6 +38,7 @@
         - nmap
         - pandoc
         - pavucontrol
+        - pasystray
         - pulseaudio
         - pulseaudio-utils
         - pwgen

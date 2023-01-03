@@ -10,6 +10,7 @@ function run {
 run redshift
 run urxvtd -q -o -f
 #run syndaemon -i 1 -d
+run pasystray
 run nm-applet
 #run xfce4-power-manager
 

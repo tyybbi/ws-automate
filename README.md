@@ -14,5 +14,4 @@ Use Ansible to quickly set up Awesome WM and some custom configs on a new Debian
 ### Tags
 
 - Add `--tags "all,laptop"` if the target machine is a laptop
-- Add `--tags "all,cvim"` to install Chromium and use local ~/.cvimrc
 

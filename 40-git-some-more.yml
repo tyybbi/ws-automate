@@ -17,14 +17,12 @@
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
       mode: 0750
-    tags: [ never, cvim ]
 
   - name: Clone chromium-vim repo
     git:
       repo: 'https://github.com/tyybbi/chromium-vim.git'
       dest: "/home/{{ usernam }}/misc/chromium-vim"
       version: master
-    tags: [ never, cvim ]
 
   - name: Create ~/bin if needed
     file:
@@ -60,5 +58,3 @@
       owner: "{{ usernam }}"
       group: "{{ usernam }}"
       mode: 0640
-    tags: [ never, cvim ]
-

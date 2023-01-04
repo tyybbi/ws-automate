@@ -51,7 +51,7 @@ alias Latexclean='rm -f *.log *.aux'
 alias Last='last | grep down | sort -n -k 5'
 alias Axephyr='Xephyr -ac -br -noreset -screen 1152x720 :1 &'
 alias Arun='DISPLAY=:1.0 awesome -c $HOME/.config/awesome/test-rc.lua'
-alias 1GBnull='wget ftp://ftp.funet.fi/dev/1GBnull' # poor man's speed test
+alias 1GBnull='wget -O /dev/null -q --show-progress ftp://ftp.funet.fi/dev/1GBnull' # poor man's speed test
 alias Vrclua='vi $HOME/.config/awesome/rc.lua'
 alias InstDate='echo -n "*$HOST* $(uname -o) installation date: " && \ls --time-style=long-iso -ld /var/log/installer | cut -d" " -f6-7'
 alias Randid="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 7 | head -n 1"

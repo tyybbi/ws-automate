@@ -45,6 +45,7 @@
         - ranger
         - redshift
         - rename
+        - rolldice
         - rsync
         - rxvt-unicode
         - scrot

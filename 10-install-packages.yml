@@ -5,18 +5,21 @@
 
   - name: Install packages
     apt:
+      install_recommends: no
       pkg:
         - alsa-utils
         - ansible
         - ansible-lint
-        - awesome
-        - awesome-extra
+        - apt-file
         - apt-show-versions
         - aptitude
+        - awesome
+        - awesome-extra
         - audacity
         - bash-completion
         - bc
         - brightnessctl
+        - devscripts
         - dbus-x11
         - dnsutils
         - exiftool

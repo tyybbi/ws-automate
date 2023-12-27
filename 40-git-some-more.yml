@@ -1,60 +1,60 @@
-  - name: Clone scripts repo
-    git:
-      repo: 'https://github.com/tyybbi/scripts.git'
-      dest: "/tmp/scripts"
-      version: master
+- name: Clone scripts repo
+  ansible.builtin.git:
+    repo: 'https://github.com/tyybbi/scripts.git'
+    dest: "/tmp/scripts"
+    version: master
 
-  - name: Clone dotfiles repo
-    git:
-      repo: 'https://github.com/tyybbi/dotfiles.git'
-      dest: "/tmp/dotfiles"
-      version: master
+- name: Clone dotfiles repo
+  ansible.builtin.git:
+    repo: 'https://github.com/tyybbi/dotfiles.git'
+    dest: "/tmp/dotfiles"
+    version: master
 
-  - name: Create ~/misc if needed
-    file:
-      path: "/home/{{ usernam }}/misc"
-      state: directory
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0750
+- name: Create ~/misc if needed
+  ansible.builtin.file:
+    path: "/home/{{ usernam }}/misc"
+    state: directory
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0750'
 
-  - name: Clone chromium-vim repo
-    git:
-      repo: 'https://github.com/tyybbi/chromium-vim.git'
-      dest: "/home/{{ usernam }}/misc/chromium-vim"
-      version: master
+- name: Clone chromium-vim repo
+  ansible.builtin.git:
+    repo: 'https://github.com/tyybbi/chromium-vim.git'
+    dest: "/home/{{ usernam }}/misc/chromium-vim"
+    version: master
 
-  - name: Create ~/bin if needed
-    file:
-      path: "/home/{{ usernam }}/bin"
-      state: directory
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0750
+- name: Create ~/bin if needed
+  ansible.builtin.file:
+    path: "/home/{{ usernam }}/bin"
+    state: directory
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0750'
 
-  - name: Copy battery widget
-    copy:
-      src: files/awesome-bat
-      dest: "/home/{{ usernam }}/bin/awesome-bat"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0750
-    tags: [ never, laptop ]
+- name: Copy battery widget
+  ansible.builtin.copy:
+    src: files/awesome-bat
+    dest: "/home/{{ usernam }}/bin/awesome-bat"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0750'
+  tags: [never, laptop]
 
-  - name: Copy .gitconfig
-    copy:
-      remote_src: yes
-      src: "/tmp/dotfiles/gitconfig"
-      dest: "/home/{{ usernam }}/.gitconfig"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0640
+- name: Copy .gitconfig
+  ansible.builtin.copy:
+    remote_src: true
+    src: "/tmp/dotfiles/gitconfig"
+    dest: "/home/{{ usernam }}/.gitconfig"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0640'
 
-  - name: Copy .cvimrc
-    copy:
-      remote_src: yes
-      src: "/tmp/dotfiles/cvimrc"
-      dest: "/home/{{ usernam }}/.cvimrc"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0640
+- name: Copy .cvimrc
+  ansible.builtin.copy:
+    remote_src: true
+    src: "/tmp/dotfiles/cvimrc"
+    dest: "/home/{{ usernam }}/.cvimrc"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0640'

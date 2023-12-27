@@ -1,8 +1,8 @@
-  - name: Create user
-    user:
-      name: "{{ usernam }}"
-      shell: /usr/bin/zsh
-      comment: "{{ usernam }}"
-      # Create your own password hash
-      password: $6$ZgsA6SJKcyC/YwyF$o.WKoTXqtJmRdl0G6ZKUNUWcknkZCctMLUu8JTGyKf3VxY88vZHoS0RbCI46JhMnKz828hxasuCTgT.V1u/LO0
-      groups: sudo,plugdev,audio,video,cdrom,dip,netdev
+- name: Create user
+  ansible.builtin.user:
+    name: "{{ usernam }}"
+    shell: /usr/bin/zsh
+    comment: "{{ usernam }}"
+    # Create your own password hash
+    password: $6$ZgsA6SJKcyC/YwyF$o.WKoTXqtJmRdl0G6ZKUNUWcknkZCctMLUu8JTGyKf3VxY88vZHoS0RbCI46JhMnKz828hxasuCTgT.V1u/LO0
+    groups: sudo,plugdev,audio,video,cdrom,dip,netdev

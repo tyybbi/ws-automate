@@ -1,76 +1,76 @@
-  - name: Update packages
-    apt:
-      upgrade: dist
-      update_cache: yes
+- name: Update packages
+  ansible.builtin.apt:
+    upgrade: dist
+    update_cache: true
 
-  - name: Install packages
-    apt:
-      install_recommends: no
-      pkg:
-        - alsa-utils
-        - ansible
-        - ansible-lint
-        - apt-file
-        - apt-show-versions
-        - aptitude
-        - awesome
-        - awesome-extra
-        - audacity
-        - bash-completion
-        - bc
-        - brightnessctl
-        - devscripts
-        - dbus-x11
-        - dnsutils
-        - exiftool
-        - feh
-        - fonts-firacode
-        - gimp
-        - gimp-plugin-registry
-        - git
-        - htop
-        - imagemagick
-        - inxi
-        - jq
-        - pandoc
-        - mediainfo
-        - mlocate
-        - ncal
-        - net-tools
-        - network-manager
-        - nmap
-        - pandoc
-        - pavucontrol
-        - pasystray
-        - pulseaudio
-        - pulseaudio-utils
-        - pwgen
-        - ranger
-        - redshift
-        - rename
-        - rolldice
-        - rsync
-        - rxvt-unicode
-        - scrot
-        - suckless-tools
-        - sudo
-        - tig
-        - tmux
-        - tree
-        - universal-ctags
-        - unzip
-        - xfonts-terminus
-        - xinit
-        - yamllint
-        - vim-nox
-        - w3m
-        - w3m-img
-        - zip
-        - zsh
-        - zsh-doc
+- name: Install packages
+  ansible.builtin.apt:
+    install_recommends: false
+    pkg:
+      - alsa-utils
+      - ansible
+      - ansible-lint
+      - apt-file
+      - apt-show-versions
+      - aptitude
+      - awesome
+      - awesome-extra
+      - audacity
+      - bash-completion
+      - bc
+      - brightnessctl
+      - devscripts
+      - dbus-x11
+      - dnsutils
+      - exiftool
+      - feh
+      - fonts-firacode
+      - gimp
+      - gimp-plugin-registry
+      - git
+      - htop
+      - imagemagick
+      - inxi
+      - jq
+      - pandoc
+      - mediainfo
+      - mlocate
+      - ncal
+      - net-tools
+      - network-manager
+      - nmap
+      - pandoc
+      - pavucontrol
+      - pasystray
+      - pulseaudio
+      - pulseaudio-utils
+      - pwgen
+      - ranger
+      - redshift
+      - rename
+      - rolldice
+      - rsync
+      - rxvt-unicode
+      - scrot
+      - suckless-tools
+      - sudo
+      - tig
+      - tmux
+      - tree
+      - universal-ctags
+      - unzip
+      - xfonts-terminus
+      - xinit
+      - yamllint
+      - vim-nox
+      - w3m
+      - w3m-img
+      - zip
+      - zsh
+      - zsh-doc
 
-  - name: Install acpitool
-    apt:
-      pkg:
-        - acpitool
-    tags: [ never, laptop ]
+- name: Install acpitool
+  ansible.builtin.apt:
+    pkg:
+      - acpitool
+  tags: [never, laptop]

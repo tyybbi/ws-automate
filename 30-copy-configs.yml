@@ -1,143 +1,143 @@
-  - name: Create some dirs
-    file:
-      path: "{{ item }}"
-      state: directory
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0750
-    with_items:
-      - "/home/{{ usernam }}/.config"
-      - "/home/{{ usernam }}/.config/awesome/themes/oma"
-      - "/home/{{ usernam }}/.zsh"
+- name: Create some dirs
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0750'
+  with_items:
+    - "/home/{{ usernam }}/.config"
+    - "/home/{{ usernam }}/.config/awesome/themes/oma"
+    - "/home/{{ usernam }}/.zsh"
 
-  - name: Copy autorun.sh
-    copy:
-      src: files/autorun.sh
-      dest: "/home/{{ usernam }}/.config/awesome/autorun.sh"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0750
+- name: Copy autorun.sh
+  ansible.builtin.copy:
+    src: files/autorun.sh
+    dest: "/home/{{ usernam }}/.config/awesome/autorun.sh"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0750'
 
-  - name: Copy rc.lua
-    template:
-      src: "files/rc.lua.j2"
-      dest: "/home/{{ usernam }}/.config/awesome/rc.lua"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0640
+- name: Copy rc.lua
+  ansible.builtin.template:
+    src: "files/rc.lua.j2"
+    dest: "/home/{{ usernam }}/.config/awesome/rc.lua"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0640'
 
-  - name: Copy rc.lua (w/ battery widget enabled)
-    template:
-      src: "files/laptop-rc.lua.j2"
-      dest: "/home/{{ usernam }}/.config/awesome/rc.lua"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0640
-    tags: [ never, laptop ]
+- name: Copy rc.lua (w/ battery widget enabled)
+  ansible.builtin.template:
+    src: "files/laptop-rc.lua.j2"
+    dest: "/home/{{ usernam }}/.config/awesome/rc.lua"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0640'
+  tags: [never, laptop]
 
-  - name: Copy awesome theme
-    template:
-      src: files/theme.lua.j2
-      dest: "/home/{{ usernam }}/.config/awesome/themes/oma/theme.lua"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0640
+- name: Copy awesome theme
+  ansible.builtin.template:
+    src: files/theme.lua.j2
+    dest: "/home/{{ usernam }}/.config/awesome/themes/oma/theme.lua"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0640'
 
-  - name: Copy Debian logo (optional)
-    copy:
-      src: files/debian.png
-      dest: "/home/{{ usernam }}/.config/awesome/themes/oma/debian.png"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0640
+- name: Copy Debian logo (optional)
+  ansible.builtin.copy:
+    src: files/debian.png
+    dest: "/home/{{ usernam }}/.config/awesome/themes/oma/debian.png"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0640'
 
-  - name: Get calendar for awesome
-    git:
-      repo: 'https://github.com/deficient/calendar.git'
-      dest: "/home/{{ usernam }}/.config/awesome/calendar"
-      version: master
+- name: Get calendar for awesome
+  ansible.builtin.git:
+    repo: 'https://github.com/deficient/calendar.git'
+    dest: "/home/{{ usernam }}/.config/awesome/calendar"
+    version: master
 
-  - name: Get eminent for awesome
-    git:
-      repo: 'https://github.com/guotsuan/eminent.git'
-      dest: "/home/{{ usernam }}/.config/awesome/eminent"
-      version: master
+- name: Get eminent for awesome
+  ansible.builtin.git:
+    repo: 'https://github.com/guotsuan/eminent.git'
+    dest: "/home/{{ usernam }}/.config/awesome/eminent"
+    version: master
 
-  - name: Copy .bashrc
-    template:
-      src: files/bashrc.j2
-      dest: "/home/{{ usernam }}/.bashrc"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0640
+- name: Copy .bashrc
+  ansible.builtin.template:
+    src: files/bashrc.j2
+    dest: "/home/{{ usernam }}/.bashrc"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0640'
 
-  - name: Copy background image
-    copy:
-      src: files/riutta.png
-      dest: "/home/{{ usernam }}/.config/awesome/themes/oma/riutta.png"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0640
+- name: Copy background image
+  ansible.builtin.copy:
+    src: files/riutta.png
+    dest: "/home/{{ usernam }}/.config/awesome/themes/oma/riutta.png"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0640'
 
-  - name: Copy .zshrc
-    copy:
-      src: files/zshrc
-      dest: "/home/{{ usernam }}/.zshrc"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0640
+- name: Copy .zshrc
+  ansible.builtin.copy:
+    src: files/zshrc
+    dest: "/home/{{ usernam }}/.zshrc"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0640'
 
-  - name: Copy .zshenv
-    copy:
-      src: files/zshenv
-      dest: "/home/{{ usernam }}/.zshenv"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0640
+- name: Copy .zshenv
+  ansible.builtin.copy:
+    src: files/zshenv
+    dest: "/home/{{ usernam }}/.zshenv"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0640'
 
-  - name: Copy .zaliases
-    copy:
-      src: files/zaliases
-      dest: "/home/{{ usernam }}/.zaliases"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0640
+- name: Copy .zaliases
+  ansible.builtin.copy:
+    src: files/zaliases
+    dest: "/home/{{ usernam }}/.zaliases"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0640'
 
-  - name: Copy Zsh theme
-    copy:
-      src: files/pisces.zsh
-      dest: "/home/{{ usernam }}/.zsh/"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0640
+- name: Copy Zsh theme
+  ansible.builtin.copy:
+    src: files/pisces.zsh
+    dest: "/home/{{ usernam }}/.zsh/"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0640'
 
-  - name: Copy .tmux.conf
-    copy:
-      src: files/tmux.conf
-      dest: "/home/{{ usernam }}/.tmux.conf"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0640
+- name: Copy .tmux.conf
+  ansible.builtin.copy:
+    src: files/tmux.conf
+    dest: "/home/{{ usernam }}/.tmux.conf"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0640'
 
-  - name: Copy .Xdefaults
-    copy:
-      src: files/Xdefaults
-      dest: "/home/{{ usernam }}/.Xdefaults"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0640
+- name: Copy .Xdefaults
+  ansible.builtin.copy:
+    src: files/Xdefaults
+    dest: "/home/{{ usernam }}/.Xdefaults"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0640'
 
-  - name: Copy redshift.conf
-    copy:
-      src: files/redshift.conf
-      dest: "/home/{{ usernam }}/.config/redshift.conf"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
-      mode: 0640
+- name: Copy redshift.conf
+  ansible.builtin.copy:
+    src: files/redshift.conf
+    dest: "/home/{{ usernam }}/.config/redshift.conf"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"
+    mode: '0640'
 
-  - name: Ensure config dir ownership
-    file:
-      recurse: yes
-      path: "/home/{{ usernam }}/.config"
-      owner: "{{ usernam }}"
-      group: "{{ usernam }}"
+- name: Ensure config dir ownership
+  ansible.builtin.file:
+    recurse: true
+    path: "/home/{{ usernam }}/.config"
+    owner: "{{ usernam }}"
+    group: "{{ usernam }}"

@@ -1,13 +1,13 @@
-  - name: Set keyboard
-    copy:
-      src: files/keyboard
-      dest: /etc/default/keyboard
-      owner: root
-      group: root
-      mode: 0644
+- name: Set keyboard
+  ansible.builtin.copy:
+    src: files/keyboard
+    dest: /etc/default/keyboard
+    owner: root
+    group: root
+    mode: '0644'
 
-  - name: Enable bitmap fonts
-    file:
-      src: /usr/share/fontconfig/conf.avail/70-yes-bitmaps.conf
-      dest: /etc/fonts/conf.d/70-yes-bitmaps.conf
-      state: link
+- name: Enable bitmap fonts
+  ansible.builtin.file:
+    src: /usr/share/fontconfig/conf.avail/70-yes-bitmaps.conf
+    dest: /etc/fonts/conf.d/70-yes-bitmaps.conf
+    state: link

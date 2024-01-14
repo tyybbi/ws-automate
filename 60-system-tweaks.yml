@@ -11,3 +11,13 @@
     src: /usr/share/fontconfig/conf.avail/70-yes-bitmaps.conf
     dest: /etc/fonts/conf.d/70-yes-bitmaps.conf
     state: link
+
+- name: Configure firewall
+  ansible.builtin.copy:
+    src: files/nftables.conf
+    dest: /etc/nftables.conf
+    owner: root
+    group: root
+    mode: '0755'
+  notify:
+    - Restart nftables

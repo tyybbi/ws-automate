@@ -21,3 +21,10 @@
       ansible.builtin.include_tasks: "50-setup-vim.yml"
     - name: System-wide tweaks
       ansible.builtin.include_tasks: "60-system-tweaks.yml"
+
+  handlers:
+    - name: Restart nftables
+      ansible.builtin.systemd:
+        name: nftables
+        state: restarted
+        enabled: true

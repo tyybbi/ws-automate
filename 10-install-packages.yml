@@ -38,6 +38,7 @@
       - ncal
       - net-tools
       - network-manager
+      - nftables
       - nmap
       - pandoc
       - pavucontrol

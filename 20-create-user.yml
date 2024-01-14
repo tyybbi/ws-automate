@@ -5,4 +5,4 @@
     comment: "{{ usernam }}"
     # Create your own password hash
     password: $6$ZgsA6SJKcyC/YwyF$o.WKoTXqtJmRdl0G6ZKUNUWcknkZCctMLUu8JTGyKf3VxY88vZHoS0RbCI46JhMnKz828hxasuCTgT.V1u/LO0
-    groups: sudo,plugdev,audio,video,cdrom,dip,netdev
+    groups: sudo,plugdev,audio,video,cdrom,dip,netdev,lp,lpadmin
